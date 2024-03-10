@@ -48,4 +48,15 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\FuturaHandwritten.ttf" />
+	  <None Remove="Resources\Images\img0.png" />
+	  <None Remove="Resources\Images\img1.png" />
+	  <None Remove="Resources\Images\img2.png" />
+	  <None Remove="Resources\Images\img3.png" />
+	  <None Remove="Resources\Images\img4.png" />
+	  <None Remove="Resources\Images\img5.png" />
+	  <None Remove="Resources\Images\img6.png" />
+	</ItemGroup>
+
 </Project>

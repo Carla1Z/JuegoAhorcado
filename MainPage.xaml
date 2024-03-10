@@ -1,41 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JuegoAhorcado.MainPage">
+<ContentPage
+    x:Class="JuegoAhorcado.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#f3dfc1">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+    <Grid RowDefinitions=".6*,.4*">
+        <VerticalStackLayout>
 
             <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="Nro. Errores: 0 de 6" />
+            <Image HeightRequest="200" Source="img0.png" />
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
+                FontSize="40"
+                HorizontalOptions="Center"
+                Text="_ _ C _ _"
+                VerticalOptions="Center" />
+            <Label
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="Perdiste!" />
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
+                HorizontalOptions="Center"
+                Text="Reiniciar"
+                WidthRequest="100" />
         </VerticalStackLayout>
-    </ScrollView>
+        <FlexLayout
+            Grid.Row="1"
+            JustifyContent="SpaceEvenly"
+            Wrap="Wrap">
+            <Button
+                HeightRequest="50"
+                Text="A"
+                WidthRequest="50" />
+
+        </FlexLayout>
+    </Grid>
 
 </ContentPage>
