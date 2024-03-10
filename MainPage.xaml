@@ -6,8 +6,7 @@
     BackgroundColor="#f3dfc1">
 
     <Grid RowDefinitions=".6*,.4*">
-        <VerticalStackLayout>
-
+        <VerticalStackLayout Spacing="10">
             <Label
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
@@ -16,7 +15,7 @@
             <Label
                 FontSize="40"
                 HorizontalOptions="Center"
-                Text="_ _ C _ _"
+                Text="{Binding Spotlight}"
                 VerticalOptions="Center" />
             <Label
                 FontSize="Large"
@@ -27,6 +26,7 @@
                 Text="Reiniciar"
                 WidthRequest="100" />
         </VerticalStackLayout>
+
         <FlexLayout
             Grid.Row="1"
             JustifyContent="SpaceEvenly"
