@@ -10,8 +10,8 @@
             <Label
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
-                Text="Nro. Errores: 0 de 6" />
-            <Image HeightRequest="200" Source="img0.png" />
+                Text="{Binding GameStatus}" />
+            <Image HeightRequest="200" Source="{Binding CurrentImage}" />
             <Label
                 FontSize="40"
                 HorizontalOptions="Center"
@@ -20,22 +20,30 @@
             <Label
                 FontSize="Large"
                 HorizontalTextAlignment="Center"
-                Text="Perdiste!" />
+                Text="{Binding Message}" />
             <Button
+                x:Name="btnReset"
+                Clicked="btnReset_Clicked"
                 HorizontalOptions="Center"
                 Text="Reiniciar"
                 WidthRequest="100" />
         </VerticalStackLayout>
 
         <FlexLayout
+            x:Name="LettersContainer"
             Grid.Row="1"
+            BindableLayout.ItemsSource="{Binding Letters}"
             JustifyContent="SpaceEvenly"
             Wrap="Wrap">
-            <Button
-                HeightRequest="50"
-                Text="A"
-                WidthRequest="50" />
-
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                        Clicked="Button_Clicked"
+                        HeightRequest="50"
+                        Text="{Binding .}"
+                        WidthRequest="50" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
         </FlexLayout>
     </Grid>
 

@@ -57,25 +57,25 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
     #region Fields
     List<string> words = new List<string>()
     {
-        "Computadora",
-        "Programación",
-        "Elefante",
-        "Chocolate",
-        "Teléfono",
-        "Avión",
-        "Montaña",
-        "Felicidad",
-        "Escuela",
-        "Biblioteca",
-        "Mariposa",
-        "Guitarra",
-        "Feliz",
-        "Viaje",
-        "Fotografía",
-        "Jugador",
-        "Universo",
-        "Pizza",
-        "Helado"
+        "computadora",
+        "programacion",
+        "elefante",
+        "chocolate",
+        "telefono",
+        "avion",
+        "montaña",
+        "felicidad",
+        "escuela",
+        "biblioteca",
+        "mariposa",
+        "guitarra",
+        "feliz",
+        "viaje",
+        "fotografia",
+        "jugador",
+        "universo",
+        "pizza",
+        "helado"
     };
     string answer = "";
     private string spotlight;
@@ -90,6 +90,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
     public MainPage()
     {
         InitializeComponent();
+        Letters.AddRange("abcdefghijklmnñopqrstuvwxyz");
         BindingContext = this;
         PickWord();
         CalculateWord(answer, guessed);
@@ -111,8 +112,97 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         Spotlight = string.Join(' ', temp);
     }
 
+
     #endregion
 
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        var btn = sender as Button;
+        if(btn != null)
+        {
+            var letter = btn.Text;
+            btn.IsEnabled = false;
+            HandleGuess(letter[0]);
+        }
+    }
 
+    private void HandleGuess(char letter)
+    {
+        if(guessed.IndexOf(letter) == -1)
+        {
+            guessed.Add(letter);
+        }
+        if(answer.IndexOf(letter) >= 0)
+        {
+            CalculateWord(answer, guessed);
+            CheckIfGameWon();
+        }
+        else if (answer.IndexOf(letter) == -1)
+        {
+            mistakes++;
+            UpdateStatus();
+            CheckIfGameLost();
+            CurrentImage = $"img{mistakes}.jpg";
+        }
+    }
+
+    private void CheckIfGameLost()
+    {
+       if (mistakes == maxWrong)
+        {
+            Message = "Perdiste!";
+            DisableLetters();
+        }
+    }
+
+    private void DisableLetters()
+    {
+        foreach (var children in LettersContainer.Children)
+        {
+            var btn = children as Button;
+            if(btn != null )
+            {
+                btn.IsEnabled = false;
+            }
+        }
+    }
+
+    private void EnableLetters()
+    {
+        foreach (var children in LettersContainer.Children)
+        {
+            var btn = children as Button;
+            if (btn != null)
+            {
+                btn.IsEnabled = true;
+            }
+        }
+    }
+
+    private void CheckIfGameWon()
+    {
+        if (spotlight.Replace(" ", "") == answer)
+        {
+            Message = "Ganaste!";
+            DisableLetters();
+        }
+    }
+
+    private void UpdateStatus()
+    {
+        GameStatus = $"Nro. Errores: {mistakes} de {maxWrong}.";
+    }
+
+    private void btnReset_Clicked(object sender, EventArgs e)
+    {
+        mistakes = 0 ;
+        guessed = new List<char> ();
+        CurrentImage = "img0.jpg";
+        PickWord();
+        CalculateWord(answer,guessed);
+        Message = "";
+        UpdateStatus();
+        EnableLetters();
+    }
 }
 

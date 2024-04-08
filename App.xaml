@@ -13,10 +13,10 @@
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="HeyComic" />
             </Style>
-            <Style TargetType="Button">
+            <!--<Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#565264" />
                 <Setter Property="TextColor" Value="#f1f2ee" />
-            </Style>
+            </Style>-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
