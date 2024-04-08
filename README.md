@@ -7,7 +7,6 @@ Una moderna reinterpretación del clásico juego del Ahorcado, desarrollada con 
 - **Interfaz Intuitiva**: Diseñada para ser amigable y accesible para jugadores de todas las edades.
 - **Jugabilidad en Cualquier Dispositivo**: Gracias a .NET MAUI, disfruta del juego en iOS, Android, Windows y MacOS.
 - **Educativo y Divertido**: Expande tu vocabulario en una forma divertida y emocionante.
-- **Categorías de Palabras**: Para que cada juego sea único y desafiante.
 
 ## Capturas de Pantalla
 
